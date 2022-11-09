@@ -9,11 +9,14 @@ import Base from "./components/layouts/Base";
 import "./app.scss";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <BrowserRouter>
       <Base>
+        <ToastContainer />
         <Routes>
           <Route index path="/" element={<Index />} />
           <Route path="/home" element={<Home />} />
