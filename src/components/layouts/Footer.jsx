@@ -1,10 +1,12 @@
-// import { Link } from "react-router-dom";
+import { Box, Typography } from "@mui/material";
 
 function Footer() {
   return (
-    <footer className="container-fluid p-4">
-      <p className="mb-0 text-center">&copy;Footer 2022</p>
-    </footer>
+    <Box p={2} component="footer">
+      <Typography sx={{ textAlign: "center" }}>
+        &copy; react firebase auth 2022
+      </Typography>
+    </Box>
   );
 }
 export default Footer;
