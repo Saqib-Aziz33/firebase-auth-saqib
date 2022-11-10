@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 function Protected({ children }) {
   const navigate = useNavigate();
@@ -7,6 +8,7 @@ function Protected({ children }) {
   useEffect(() => {
     const isLogedIn = sessionStorage.getItem("auth");
     if (!isLogedIn) {
+      toast.error("Login required");
       navigate("/login");
     }
   }, []);

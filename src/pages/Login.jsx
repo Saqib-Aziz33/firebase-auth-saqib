@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ function Login() {
     if (sessionStorage.getItem("auth")) {
       navigate("/home");
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <Box>
@@ -38,6 +38,10 @@ function Login() {
             type="password"
             variant="standard"
           />
+
+          <Typography variant="body2">
+            Not have an account? <Link to="/register">Register here</Link>
+          </Typography>
 
           <Button variant="contained">Login</Button>
         </Stack>
