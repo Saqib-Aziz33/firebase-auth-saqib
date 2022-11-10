@@ -1,14 +1,15 @@
 // componenets
-import { Box, Button, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import Protected from "../components/utils/Protected";
+import Signout from "../components/utils/Signout";
 
 function Home() {
   return (
     <Protected>
-      <Box>
+      <Container>
         <h1>Home</h1>
-        <Button variant="contained">Welcome to mui</Button>
-      </Box>
+        <Signout />
+      </Container>
     </Protected>
   );
 }

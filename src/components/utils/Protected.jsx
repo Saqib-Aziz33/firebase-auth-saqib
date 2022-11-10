@@ -11,7 +11,7 @@ function Protected({ children }) {
       toast.error("Login required");
       navigate("/login");
     }
-  }, []);
+  }, [navigate]);
 
   return children;
 }

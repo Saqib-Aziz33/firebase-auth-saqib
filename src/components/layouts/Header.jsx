@@ -15,13 +15,9 @@ const pages = ["Home", "Login", "Register"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -105,7 +101,7 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            FlexAuth
+            FireAuth
           </Typography>
           <Box
             sx={{
