@@ -9,21 +9,22 @@ import NotFound from "./pages/NotFound";
 import Base from "./components/layouts/Base";
 // firebase
 // eslint-disable-next-line
-import { app } from "./firebase";
+import { app, db, auth } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
 } from "firebase/auth";
 // other
 import { toast, ToastContainer } from "react-toastify";
 import "./app.scss";
 import "react-toastify/dist/ReactToastify.css";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
-  const auth = getAuth();
   const navigate = useNavigate();
-
+  console.log("current user:", auth.currentUser);
   async function registerUser(user) {
     try {
       // eslint-disable-next-line
@@ -35,6 +36,15 @@ function App() {
       // console.log(responce.user);
       // sessionStorage.setItem("auth", responce._tokenResponse.refreshToken);
       toast.info("registered successfully/ please sign in now");
+
+      // send email
+      sendEmailVerification(auth.currentUser).then(() => {
+        // Email verification sent!
+        console.log("email sent");
+      });
+
+      // save to fire store
+      saveInStore(user);
       navigate("/login");
     } catch (e) {
       toast.error(e.message);
@@ -56,6 +66,15 @@ function App() {
     }
   }
 
+  async function saveInStore(data) {
+    try {
+      const docRef = await addDoc(collection(db, "users"), data);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
   return (
     <>
       <Base>
@@ -68,6 +87,7 @@ function App() {
             path="/register"
             element={<Register registerUser={registerUser} />}
           />
+          <Route path="/forgot/password" element={<ForgotPassword />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </Base>

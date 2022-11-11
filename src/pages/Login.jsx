@@ -70,6 +70,9 @@ function Login({ loginUser }) {
           <Typography variant="body2">
             Not have an account? <Link to="/register">Register here</Link>
           </Typography>
+          <Typography variant="body2">
+            <Link to="/forgot/password">Forgot password?</Link>
+          </Typography>
 
           <Button onClick={handleSubmit} variant="contained">
             Login
