@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function ContinueWithGoogle() {
   const provider = new GoogleAuthProvider();
-  provider.addScope('https://firebase-auth-saqib.netlify.app/login');
   const navigate = useNavigate();
 
   const handleClick = () => {
