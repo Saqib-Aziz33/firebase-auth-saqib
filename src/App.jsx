@@ -25,6 +25,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 function App() {
   const navigate = useNavigate();
   console.log("current user:", auth.currentUser);
+
   async function registerUser(user) {
     try {
       // eslint-disable-next-line

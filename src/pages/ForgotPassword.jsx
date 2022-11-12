@@ -3,7 +3,7 @@ import { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -33,6 +33,9 @@ function ForgotPassword() {
       <Button onClick={handleClick} variant="contained" sx={{ mt: 2 }}>
         Next
       </Button>
+      <Link to="/login">
+        <Button sx={{ mt: 2, ml: 2 }}>Back</Button>
+      </Link>
     </Box>
   );
 }

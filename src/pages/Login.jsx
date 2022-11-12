@@ -5,10 +5,12 @@ import {
   Stack,
   Button,
   Typography,
+  Divider,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import ContinueWithGoogle from "../components/utils/ContinueWithGoogle";
 const initialState = { email: "", password: "" };
 
 function Login({ loginUser }) {
@@ -77,6 +79,9 @@ function Login({ loginUser }) {
           <Button onClick={handleSubmit} variant="contained">
             Login
           </Button>
+
+          <Divider>OR</Divider>
+          <ContinueWithGoogle />
         </Stack>
       </Container>
     </Box>

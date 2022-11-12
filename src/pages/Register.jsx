@@ -5,6 +5,7 @@ import {
   Button,
   Checkbox,
   Container,
+  Divider,
   FormControlLabel,
   FormGroup,
   Grid,
@@ -12,6 +13,8 @@ import {
   Typography,
 } from "@mui/material";
 import { toast } from "react-toastify";
+import ContinueWithGoogle from "../components/utils/ContinueWithGoogle";
+import { Stack } from "@mui/system";
 
 const initialState = { username: "", email: "", password: "" };
 
@@ -111,6 +114,11 @@ function Register({ registerUser }) {
             <Typography mt={1} variant="body2">
               Aldeady have an account <Link to="/login">login here</Link>
             </Typography>
+
+            <Stack mt={2} spacing={2}>
+              <Divider>OR</Divider>
+              <ContinueWithGoogle />
+            </Stack>
           </Grid>
         </Grid>
       </Container>
